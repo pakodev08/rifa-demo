@@ -22,10 +22,11 @@ app.use(`/api/numbers`, router )
 
 app.use(`/api/users`, routerUser )
 
+app.use(express.static(path.join(__dirname, 'dist')));
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
-app.use(express.static(path.join(__dirname, 'dist')));
 
 app.listen(process.env.PORT, () => {
     console.log(`Servidor corriendo en el puerto ${process.env.PORT}`);
